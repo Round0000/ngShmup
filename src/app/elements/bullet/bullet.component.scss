@@ -1,0 +1,17 @@
+.bullet {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #fff5;
+  border: 2px solid yellow;
+  border-radius: 100%;
+  animation: bullet 1s forwards;
+}
+
+@keyframes bullet {
+  from {
+    scale: 1.2;
+    border-color: orangered;
+    background-color: crimson;
+  }
+}

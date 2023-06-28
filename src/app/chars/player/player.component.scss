@@ -1,0 +1,23 @@
+.player {
+  position: absolute;
+  width: 43px;
+  height: 33px;
+  bottom: 32px;
+  left: calc(50% - 32px);
+  background-image: url(../../../assets/img/player.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 42;
+  transition: left 1s;
+
+  // &::before {
+  //   position: absolute;
+  //   content: '';
+  //   width: 3px;
+  //   height: 90vh;
+  //   background-color: #fff6;
+  //   left: 20px;
+  //   right: 20px;
+  //   bottom: 50%;
+  // }
+}
