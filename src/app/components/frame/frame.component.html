@@ -1,5 +1,6 @@
 <div #frame class="frame">
   <app-player></app-player>
-  <app-bullet *ngFor="let bullet of bul.bullets;" [id]="bullet"></app-bullet>
+  <app-bullet *ngFor="let bullet of bs.bullets;" [obj]="bullet"></app-bullet>
+  <app-enemy *ngFor="let enemy of enm.enemies;" [obj]="enemy"></app-enemy>
 </div>
 

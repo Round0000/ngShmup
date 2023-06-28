@@ -1,0 +1,17 @@
+.enemy {
+  position: absolute;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: center;
+
+  width: 32px;
+  height: 32px;
+  background-image: url(../../../assets/img/enemy1.png);
+  transition: opacity .5s;
+}
+
+.exploding {
+  mix-blend-mode: multiply;
+  opacity: .5;
+}
