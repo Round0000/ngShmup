@@ -4,7 +4,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BulletsService {
-  constructor() { }
 
   bullets: any[] = [];
+
+  shoot(shotRate: number) {
+    if (this.bullets.length) {
+      if ((Date.now() - this.bullets.at(-1).id) < shotRate) return
+    }
+    this.bullets.push({ id: Date.now(), pos: {} })
+  }
 }

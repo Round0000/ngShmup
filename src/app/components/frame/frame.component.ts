@@ -10,29 +10,29 @@ import { PositionService } from 'src/app/services/position.service';
   styleUrls: ['./frame.component.scss']
 })
 export class FrameComponent {
-  constructor(public bs: BulletsService, public game: GameService, public enm: EnemiesService, public pos: PositionService) {}
+  constructor(public bS: BulletsService, public gS: GameService, public eS: EnemiesService, public pS: PositionService) {}
 
   @ViewChild('frame') frame: any;
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.code === 'Space') {
-      this.game.playing = !this.game.playing;
+      this.gS.playing = !this.gS.playing;
     }
 
-    if (!this.game.playing) return;
+    if (!this.gS.playing) return;
     if (event.key === 'a') {
-      this.bs.bullets.push({ id: Date.now(), pos: {} })
+      this.bS.shoot(this.gS.player.shotRate)
     }
   }
 
   ngAfterViewInit() {
-    const frameRect = this.pos.getRect(this.frame.nativeElement)
-    this.pos.frame = {
+    const frameRect = this.pS.getRect(this.frame.nativeElement)
+    this.pS.frame = {
       width: frameRect.width,
       height: frameRect.height
     }
 
-    this.game.startGame(this.frame.nativeElement);
+    this.gS.startGame(this.frame.nativeElement);
   }
 }

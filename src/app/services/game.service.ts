@@ -19,7 +19,7 @@ export class GameService {
 
   player: any = {
     damage: 25,
-    shotRate: 500
+    shotRate: 400
   };
 
   startGame(frame: any) {
