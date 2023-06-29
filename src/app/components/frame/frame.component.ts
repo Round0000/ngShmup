@@ -33,36 +33,6 @@ export class FrameComponent {
       height: frameRect.height
     }
 
-    setInterval(() => {
-      if (!this.game.playing) return;
-
-      const currBackgroundPos = Number(window.getComputedStyle(this.frame.nativeElement).backgroundPositionY.split("px")[0])
-      if (currBackgroundPos > 1024) {
-        this.frame.nativeElement.style.backgroundPositionY = '0px';
-      } else {
-        this.frame.nativeElement.style.backgroundPositionY = currBackgroundPos + 0.5 + 'px';
-      }
-
-      this.bs.bullets.forEach((b: any) => {
-        this.enm.enemies.forEach((e: any) => {
-          if (
-            b.pos.t < e.pos.b - e.pos.h / 4 &&
-            b.pos.l + 8 > e.pos.l &&
-            b.pos.l < e.pos.l + e.pos.w &&
-            b.pos.t > e.pos.t
-          ) {
-            this.bs.bullets = this.bs.bullets.filter((bul: any) => bul.id !== b.id)
-            e.hp -= 25;
-          }
-        })
-      })
-    }, 16);
-
-      this.enm.enemies.push({ id: Date.now(), pos: {} })
-    setInterval(() => {
-      if (!this.game.playing || this.pos.getRandom(0, 1) === 0 || this.enm.enemies.length > 10) return;
-      this.enm.enemies.push({ id: Date.now(), pos: {} })
-    }, 1000)
-
+    this.game.startGame(this.frame.nativeElement);
   }
 }

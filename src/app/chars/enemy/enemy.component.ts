@@ -48,7 +48,6 @@ export class EnemyComponent {
       this.obj.pos.b += 1;
 
       if (this.obj.hp <= 0) {
-        this.enemy.nativeElement.classList.add('exploding');
         setTimeout(() => {
           this.enm.enemies = this.enm.enemies.filter((e: any) => e.id !== this.obj.id)
         }, 500);
